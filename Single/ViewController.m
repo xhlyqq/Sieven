@@ -7,16 +7,47 @@
 //
 
 #import "ViewController.h"
-
+#import "Single.h"
+#import "MainViewController.h"
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    Single *obg=[[Single alloc]init];
+    self.label.backgroundColor=obg.color;
+}
+
+
+
+
+
+
+- (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    Single *obj1=[Single shareSingle];
+    Single *obj2=[[Single alloc]init];
+    
+    NSLog(@"%p~~~~~~~~~%p",obj1,obj2);
+    
+    
+    
+    
+}
+- (IBAction)btn:(UIButton *)sender {
+    
+    
+    MainViewController *mvc=[[MainViewController alloc]init];
+    [self presentViewController:mvc animated:YES completion:^{
+        [mvc release];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,4 +55,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_label release];
+    [super dealloc];
+}
 @end

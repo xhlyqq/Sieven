@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  Single
 //
 //  Created by Mac on 16/2/29.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-@property (retain, nonatomic) IBOutlet UILabel *label;
-
+@interface MainViewController : UIViewController
 
 @end
-
